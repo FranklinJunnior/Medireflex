@@ -188,8 +188,6 @@ const PanelPage = () => {
           />
         </div>
 
-      
-
       {/* Sección de estadísticas */}
       <div className="mt-4 suggestion-container" style={{ backgroundColor: '#b4c6d7', color: '#333', padding: '20px' }}>
         <h2>Estadísticas:</h2>
