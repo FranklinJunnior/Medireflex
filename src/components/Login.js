@@ -28,12 +28,13 @@ const Login = () => {
     e.preventDefault();
     const correo = e.target.email.value;
     const contraseña = e.target.password.value;
+    
 
     try {
       if (registrando) {
          // Proceso de registro de usuario
         if (contraseña !== confirmarContraseña) {
-          setErrorMessage('Las contraseñas no coinciden.');
+          setErrorMessage('Las contraseñas no coinciden');
           setSuccessMessage('');
         } else {
           

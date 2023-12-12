@@ -32,7 +32,7 @@ const PanelPage = () => {
   const [user, setUser] = useState(null);
   const auth = getAuth();
   const [showChart, setShowChart] = useState(false); 
-  const [Tiempo_Reaccion, setTiempoReaccion] = useState(null);
+  const [tiempoReaccion, settiempoReaccion] = useState(null);
 
 
   // Función para manejar el clic en el icono de usuario
@@ -71,7 +71,7 @@ const PanelPage = () => {
         const handleDataChange = (snapshot) => {
           const data = snapshot.val();
           setLectura(data);
-          setTiempoReaccion(data?.Tiempo_Reaccion); 
+          settiempoReaccion(data?.tiempoReaccion); 
           setLoading(false);
         };
   
@@ -103,7 +103,6 @@ const PanelPage = () => {
   const handleDifficultyClick = async (difficulty) => {
     try {
       const authUser = auth.currentUser;
-  
       if (!authUser) {
         console.error('Usuario no autenticado.');
         return;
@@ -168,14 +167,11 @@ const PanelPage = () => {
 
 {/* Sección para mostrar el tiempo de respuesta */}
         <div className="mt-4 suggestion-container" style={{ backgroundColor: '#b4c6d7', color: '#333', padding: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <h4>Su Tiempo de Respuesta es de: <b> {Tiempo_Reaccion} segundos</b></h4>
+          <h4>Su Tiempo de Respuesta es de: <b> {tiempoReaccion} segundos</b></h4>
           <Speedometer
-            value={Tiempo_Reaccion || 0}
+            value={tiempoReaccion || 0}
             minValue={0}
             maxValue={10000}
-            needleColor="red"
-            startColor="green"
-            endColor="red"
             segments={5}
             valueTextMargin={1000}
             segmentColors={['green', 'lightgreen', 'yellow', 'orange', 'red']}
@@ -184,13 +180,13 @@ const PanelPage = () => {
             textColor="black" // Color del texto
             valueTextFontSize={35} // Tamaño de la fuente del valor
             labelFontSize={14} // Tamaño de la fuente de las etiquetas
-            currentValueText={Tiempo_Reaccion ? Tiempo_Reaccion.toString() : ''}
+            currentValueText={tiempoReaccion ? tiempoReaccion.toString() : ''}
           />
         </div>
 
       {/* Sección de estadísticas */}
       <div className="mt-4 suggestion-container" style={{ backgroundColor: '#b4c6d7', color: '#333', padding: '20px' }}>
-        <h2>Estadísticas:</h2>
+        <h2><b> Estadísticas:</b></h2>
         {lectura ? (
           <div>
             <p className="text-primary"><b>Acertado: </b>{lectura.aciertos}</p>
