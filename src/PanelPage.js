@@ -167,12 +167,13 @@ const PanelPage = () => {
 
 {/* Sección para mostrar el tiempo de respuesta */}
         <div className="mt-4 suggestion-container" style={{ backgroundColor: '#b4c6d7', color: '#333', padding: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <h4>Su Tiempo de Respuesta es de: <b> {tiempoReaccion} segundos</b></h4>
+          <h4>Su Tiempo de Respuesta es de: <b> {tiempoReaccion} Milisegundos</b></h4>
           <Speedometer
             value={tiempoReaccion || 0}
             minValue={0}
             maxValue={10000}
             segments={5}
+            segmentLabels={['0ms', '2000ms', '4000ms', '6000ms', '8000ms', '10000ms']}
             valueTextMargin={1000}
             segmentColors={['green', 'lightgreen', 'yellow', 'orange', 'red']}
             width={500} // Ajusta el ancho según tus necesidades
@@ -180,7 +181,7 @@ const PanelPage = () => {
             textColor="black" // Color del texto
             valueTextFontSize={35} // Tamaño de la fuente del valor
             labelFontSize={14} // Tamaño de la fuente de las etiquetas
-            currentValueText={tiempoReaccion ? tiempoReaccion.toString() : ''}
+            currentValueText={tiempoReaccion ? `${tiempoReaccion} ms` : ''}     
           />
         </div>
 
